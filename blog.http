@@ -1,0 +1,88 @@
+@api_url = http://localhost:9000/api/v1
+
+###
+# fetch user by id
+# @prompt bearer_token
+GET {{api_url}}/user/profile
+Authorization: Bearer {{bearer_token}}
+
+
+###
+# Signup user
+POST {{api_url}}/auth/signup
+Content-Type: application/json
+
+{
+  "username":"user1",
+  "email" : "test@email.com",
+  "password": "password"
+}
+
+###
+
+# login
+POST {{api_url}}/auth/login
+Content-Type: application/json
+
+{
+  "email": "jane@gmail.com",
+  "password" : "password"
+}
+
+###
+
+# Get All Post
+GET {{api_url}}/post
+
+###
+
+# Create Post
+POST {{api_url}}/post
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzE3MGNjNDExOTk4MjUxOWEzODg0OWMiLCJlbWFpbCI6ImphbmVAZ21haWwuY29tIiwiaWF0IjoxNzI5NjQyNzQ4LCJleHAiOjE3Mjk3MjkxNDh9.FwNtqMb6qJ2OqWIec8tn-yvA1mujPulw1wAK6UAW0lw
+Content-Type: application/json
+
+{
+  "title": "Post 1",
+  "content": "Content of POST",
+  "image" : "https://wallpapercave.com/wp/rdYAno5.jpg"
+}
+
+###
+# Get Post Detail
+# @prompt id
+GET {{api_url}}/post/{{id}}
+
+
+###
+# Delete Post
+# @prompt bearer_token
+@post_id = 670e474d2121144d3b15ef17
+DELETE {{api_url}}/post/{{post_id}}
+Authorization: Bearer {{bearer_token}}
+
+###
+# Update Post
+@post_id = 67170ed9119982519a3884c4
+PATCH {{api_url}}/post/{{post_id}}
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzE3MGNjNDExOTk4MjUxOWEzODg0OWMiLCJlbWFpbCI6ImphbmVAZ21haWwuY29tIiwidXNlcm5hbWUiOiJKYW5lIERvZSIsImlhdCI6MTcyOTczNzAwMSwiZXhwIjoxNzI5ODIzNDAxfQ.vIUxUuYyhRgGE5ycY-vyKws_qZ4I4RNYCfq55NVpAwI
+Content-Type: application/json
+
+{
+  "title": "updated post"
+}
+
+
+###
+GET {{api_url}}/user/post
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzE3MGNjNDExOTk4MjUxOWEzODg0OWMiLCJlbWFpbCI6ImphbmVAZ21haWwuY29tIiwidXNlcm5hbWUiOiJKYW5lIERvZSIsImlhdCI6MTcyOTczNzAwMSwiZXhwIjoxNzI5ODIzNDAxfQ.vIUxUuYyhRgGE5ycY-vyKws_qZ4I4RNYCfq55NVpAwI
+
+###
+GET  {{api_url}}/auth/verify
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzE3MGNjNDExOTk4MjUxOWEzODg0OWMiLCJlbWFpbCI6ImphbmVAZ21haWwuY29tIiwidXNlcm5hbWUiOiJKYW5lIERvZSIsImlhdCI6MTcyOTY1MzYwMSwiZXhwIjoxNzI5NzQwMDAxfQ.3dzfuEtDCAba2B5uhoKBJjSXhLjH7w3mACzQMAFsWak
+
+###
+GET {{api_url}}/post/search/zoo
+
+###
+PATCH {{api_url}}/post/like/67170ed9119982519a3884c4
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzE3MGNjNDExOTk4MjUxOWEzODg0OWMiLCJlbWFpbCI6ImphbmVAZ21haWwuY29tIiwidXNlcm5hbWUiOiJKYW5lIERvZSIsImlhdCI6MTcyOTczNzAwMSwiZXhwIjoxNzI5ODIzNDAxfQ.vIUxUuYyhRgGE5ycY-vyKws_qZ4I4RNYCfq55NVpAwI
